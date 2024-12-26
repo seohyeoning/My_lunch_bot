@@ -3,7 +3,9 @@ import requests
 import os
 import openai
 
+load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
+google_api_key = os.getenv("google_api_key")
 # GPT 모델을 사용한 점심 추천
 def get_lunch_recommendations(weather, preference, mood):
     prompt = (
@@ -24,7 +26,7 @@ def get_lunch_recommendations(weather, preference, mood):
     except Exception as e:
         return f"오류 발생: {str(e)}"
 
-# 음식 사진 검색 (Unsplash API 예시)
+# 음식 사진 검색 
 def get_food_image(food_name):
     """
     Unsplash API를 사용하여 음식 사진 검색.
@@ -63,7 +65,6 @@ def find_restaurants_google(keyword, latitude, longitude):
     """
     Google Places API를 사용하여 음식점 검색 및 거리 계산.
     """
-    google_api_key = "AIzaSyCH0sjWKxIBkiYLywBiQf2tOg8W4AdmJBU"  # 발급받은 Google API Key
     url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
     params = {
         "key": google_api_key,
