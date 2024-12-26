@@ -2,7 +2,7 @@
 import requests
 import os
 import streamlit as st
-
+import openai
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 google_api_key = st.secrets["google_api_key"]
