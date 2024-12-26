@@ -4,8 +4,15 @@ import os
 import streamlit as st
 import openai
 
-load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+try:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+except KeyError:
+    load_dotenv()
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# API Key 확인
+if not openai.api_key:
+    st.error("API Key가 설정되지 않았습니다. Streamlit Secrets 또는 .env 파일을 확인하세요.")
 google_api_key = os.getenv("google_api_key")
 
 # GPT 모델을 사용한 점심 추천
