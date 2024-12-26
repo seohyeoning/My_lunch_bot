@@ -1,5 +1,4 @@
 requests
-openai==0.28
 streamlit>=1.14.0
 streamlit-folium
 folium>=0.14.0
