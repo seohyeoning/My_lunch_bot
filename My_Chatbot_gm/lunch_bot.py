@@ -1,9 +1,9 @@
-import openai
+
 import requests
+import os
+import openai
 
-# OpenAI API 설정
-openai.api_key = "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"
-
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # GPT 모델을 사용한 점심 추천
 def get_lunch_recommendations(weather, preference, mood):
     prompt = (
