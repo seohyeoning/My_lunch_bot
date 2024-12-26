@@ -4,8 +4,9 @@ import os
 import streamlit as st
 import openai
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
-google_api_key = st.secrets["google_api_key"]
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
+google_api_key = os.getnev("google_api_key")
 
 # GPT 모델을 사용한 점심 추천
 def get_lunch_recommendations(weather, preference, mood):
