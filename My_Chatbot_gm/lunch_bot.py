@@ -1,8 +1,8 @@
 
 import requests
 import os
-import openai
 
+import streamlit as st
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 google_api_key = st.secrets["google_api_key"]
 # GPT 모델을 사용한 점심 추천
